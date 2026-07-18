@@ -21,12 +21,12 @@ const WishList = ({product}) => {
   return (
     <>
       <button
-        className={`absolute top-2 right-2 bg-white rounded-full p-2 shadow hover:text-red-500 ${
+        className={`absolute top-0 right-0 md:top-2 md:right-2 lg:top-2 lg:right-2 bg-white rounded-full p-2 shadow hover:text-red-500 ${
           isWishlisted ? "text-red-500" : ""
         }`}
         onClick={clickedToLike}
       >
-        <FaHeart size={15} />
+        <FaHeart size={15}/>
       </button>
     </>
   );

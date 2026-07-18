@@ -9,14 +9,14 @@ import { FaYoutube } from "react-icons/fa";
 const Footer = () => {
   return (
     <>
-      <div className="flex bg-emerald-900 text-2xl text-white justify-evenly items-center w-full mt-3 p-10">
-        <div className="flex gap-2">
-          <img src={logo} className="w-10 h-10 rounded-4xl object-cover"></img>
+      <div className="flex bg-emerald-900 text-xl md:text-2xl lg:text-2xl text-white justify-evenly items-center w-full mt-3 p-4 lg:p-10">
+        <div className="flex gap-1 lg:gap-2 justify-center items-center">
+          <img src={logo} className="w-6 h-6 lg:w-10 lg:h-10 rounded-full object-cover"></img>
           <h1>Grocery</h1>
         </div>
 
         <div>
-          <ul className="space-y-2 text-xl cursor-pointer">
+          <ul className="space-y-0.5 lg:space-y-2 text-sm lg:text-xl cursor-pointer">
             <li>
               <Link
                 to="/"
@@ -38,9 +38,9 @@ const Footer = () => {
           </ul>
         </div>
 
-        <div className="flex flex-col gap-3 text-2xl">
+        <div className="flex flex-col gap-1 lg:gap-3 text-sm md:text-xl lg:text-2xl">
           <p>Follow on</p>
-          <div className="flex gap-2 text-2xl cursor-pointer">
+          <div className="flex gap-1 text-xl md:text-2xl md:gap-2 lg:gap-2 lg:text-2xl cursor-pointer">
             <FaFacebook />
             <AiFillInstagram />
             <FaGithub />
@@ -48,7 +48,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center items-center w-full h-13 text-sm text-gray-300 bg-emerald-800">
+      <div className="flex justify-center items-center w-full h-8 lg:h-13 text-sm text-gray-300 bg-emerald-800">
         © 2026 Grocery. All Rights Reserved.
       </div>
     </>

@@ -43,16 +43,16 @@ const AddToCart = ({ product }) => {
           onClick={(e) => e.stopPropagation()}
         >
           <button
-            className="bg-green-800 text-white h-auto w-7 rounded-xl p-1 text-xl"
+            className="bg-green-800 text-white h-auto w-5 md:w-6 lg:w-7 rounded-xl p-1 text-xs md:text-xl lg:text-xl"
             onClick={decreaseQNT}
           >
             -
           </button>
-          <span className="text-emerald-900 text-xl font-bold">
+          <span className="text-emerald-900 text-xs lg:text-xl font-bold">
             {cartItems.quantity}
           </span>
           <button
-            className="bg-green-800 text-white h-auto w-7 rounded-xl p-1 text-xl"
+            className="bg-green-800 text-white h-auto w-5 md:w-6 lg:w-7 rounded-xl p-1 text-xs md:text-xl lg:text-xl"
             onClick={increaseQNT}
           >
             +
@@ -60,7 +60,7 @@ const AddToCart = ({ product }) => {
         </div>
       ) : (
         <button
-          className="bg-green-800 text-white h-auto w-auto rounded-xl p-2"
+          className="bg-green-800 text-xs md:p-1.5 lg:text-xl text-white h-auto w-auto rounded-xl p-1 lg:p-2"
           onClick={(e) => {
             addItemsInCart();
             e.stopPropagation();

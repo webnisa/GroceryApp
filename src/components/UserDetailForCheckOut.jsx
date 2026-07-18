@@ -82,15 +82,15 @@ const UserDetailForCheckOut = () => {
 
 
   return (
-    <div className="flex flex-wrap w-120 bg-white shadow-lg border border-gray-200 text-green-800 p-3 font-bold rounded-2xl justify-center items-center h-auto">
-      <p className="font-bold text-2xl mb-3">User Detail</p>
-      <div className="flex flex-col w-full h-auto text-emerald-800 gap-3">
+    <div className="flex flex-wrap w-85 md:w-95 lg:w-120 bg-white shadow-lg border border-gray-200 text-green-800 p-1 lg:p-3 font-bold rounded-2xl justify-center items-center h-auto">
+      <p className="font-bold text-xl lg:text-2xl mb-1 lg:mb-3">User Detail</p>
+      <div className="flex flex-col w-full h-auto text-emerald-800 lg:gap-3 gap-1">
         <input
           name="name"
           type="text"
           value={userDetail.name}
           readOnly
-          className={`border rounded-lg p-2 outline-none ${!editable ? "bg-gray-200" : "bg-white"} `}
+          className={`border rounded-lg p-1 lg:p-2 outline-none text-sm ${!editable ? "bg-gray-200" : "bg-white"} `}
         />
 
         <input
@@ -98,7 +98,7 @@ const UserDetailForCheckOut = () => {
           type="email"
           value={userDetail.email}
           readOnly
-          className={`border rounded-lg p-2 outline-none ${!editable ? "bg-gray-200" : "bg-white"} `}
+          className={`border rounded-lg p-1 lg:p-2 outline-none text-sm  ${!editable ? "bg-gray-200" : "bg-white"} `}
         />
         <input
           name="phone"
@@ -110,7 +110,7 @@ const UserDetailForCheckOut = () => {
           readOnly={!editable}
           value={userDetail.phone}
           placeholder="Phone Number"
-          className={`border rounded-lg p-2 outline-none ${!editable ? "bg-gray-200" : "bg-white"} `}
+          className={`border rounded-lg p-1 lg:p-2 outline-none text-sm  ${!editable ? "bg-gray-200" : "bg-white"} `}
         />
         <textarea
           name="address"
@@ -121,7 +121,7 @@ const UserDetailForCheckOut = () => {
           }}
           readOnly={!editable}
           placeholder="Full Address"
-          className={`border rounded-lg p-2 outline-none h-24 ${!editable ? "bg-gray-200" : "bg-white"} `}
+          className={`border rounded-lg p-1 lg:p-2 outline-none text-sm  h-18 lg:h-24 ${!editable ? "bg-gray-200" : "bg-white"} `}
         />
         <input
           name="city"
@@ -131,7 +131,7 @@ const UserDetailForCheckOut = () => {
           }}
           readOnly={!editable}
           placeholder="City"
-          className={`border rounded-lg p-2 outline-none ${!editable ? "bg-gray-200" : "bg-white"} `}
+          className={`border rounded-lg p-1 lg:p-2 outline-none text-sm  ${!editable ? "bg-gray-200" : "bg-white"} `}
         />
         <input
           name="state"
@@ -141,7 +141,7 @@ const UserDetailForCheckOut = () => {
           }}
           readOnly={!editable}
           placeholder="State"
-          className={`border rounded-lg p-2 outline-none ${!editable ? "bg-gray-200" : "bg-white"} `}
+          className={`border rounded-lg p-1 lg:p-2 outline-none text-sm  ${!editable ? "bg-gray-200" : "bg-white"} `}
         />
         <input
           name="pincode"
@@ -153,19 +153,19 @@ const UserDetailForCheckOut = () => {
           readOnly={!editable}
           type="number"
           placeholder="Pincode"
-          className={`border rounded-lg p-2 outline-none ${!editable ? "bg-gray-200" : "bg-white"} `}
+          className={`border rounded-lg p-1 lg:p-2 outline-none text-sm  ${!editable ? "bg-gray-200" : "bg-white"} `}
         />
         {editable ? (
           <button
             onClick={saveAllDetails}
-            className="bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl py-3 text-lg font-semibold transition"
+            className="bg-emerald-700 hover:bg-emerald-800 text-white rounded-xl py-2 lg:py-3 text-xl lg:text-lg font-semibold transition"
           >
             Save Details
           </button>
         ) : (
           <button
             onClick={editAllDetails}
-            className="bg-red-700 hover:bg-red-800 text-white rounded-xl py-3 text-lg font-semibold transition"
+            className="bg-red-700 hover:bg-red-800 text-white rounded-xl py-2 lg:py-3 text-xl lg:text-lg font-semibold transition"
           >
             Edit Details
           </button>

@@ -40,7 +40,7 @@ const SearchBar = () => {
     .slice(0, 6);
 
   return (
-    <div className="relative flex items-center sm:w-80 md:w-[500px] lg:w-[600px] h-10 border border-gray-300 rounded-xl px-3 bg-gray-100">
+    <div className="relative flex items-center w-60 md:w-100 lg:w-150 h-10 border border-gray-300 rounded-xl px-3 bg-gray-100">
       <FaSearch className="text-gray-500 text-xl" />
       <input
         type="text"

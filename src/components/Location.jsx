@@ -35,7 +35,7 @@ const Location = () => {
   return (
     <div>
       <button
-        className="flex items-center gap-2 w-56 h-10 px-2 overflow-hidden text-emerald-800"
+        className="flex items-center gap-2 max-w-56 h-10 px-2 overflow-hidden text-emerald-800"
         onClick={getLocation}>
 
         <FaLocationDot className="text-xl shrink-0" />

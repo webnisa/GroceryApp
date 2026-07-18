@@ -13,13 +13,9 @@ function Home() {
   return (
     <>
       <Header />
-
       <HeroSection />
-
       <CategoryFilter />
-
       <ProductCard />
-
       <Footer />
     </>
   );

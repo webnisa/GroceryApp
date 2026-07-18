@@ -16,16 +16,16 @@ const CheckOut = () => {
     <>
     <Header/>
 
-      <div className="w-auto mr-20 ml-20 p-5">
+      <div className="w-auto p-2 lg:p-5">
         {/* <h1 className="text-4xl font-bold text-emerald-800 text-center mb-2">
           Checkout
         </h1> */}
 
-        <div className='w-full ml-5 mr-5 flex gap-2'>
+        <div className='w-full flex flex-col lg:flex-row gap-4 mr-4 ml-4 md:mr-10 md:ml-10 lg:mr-25 lg:ml-25'>
           <div>
             <ItemsInCheckOut/>
           </div>
-          <div className='gap-3'>
+          <div className='w-full lg:w-[420px] flex-'>
             <UserDetailForCheckOut/>
             <PayForCheckOut/>
           </div>

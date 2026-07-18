@@ -10,8 +10,8 @@ import { useNavigate } from "react-router-dom";
 
 import { useUser } from "@clerk/clerk-react";
 
-const Biling = () => {
-  const { cartTotal, cart, showBill, setshowBill } = useContext(AppContext);
+const Biling = ({billRef}) => {
+  const { cartTotal, cart, showBill, setshowBill , setIsShow} = useContext(AppContext);
 
   const navigate = useNavigate();
   const { isSignedIn } = useUser();
@@ -30,19 +30,21 @@ const Biling = () => {
   let totalPrice = subTotal + GST + deliveryCharge;
 
   return (
-    <div className="flex w-115 justify-center h-auto flex-col bg-white text-emerald-800 absolute top-0 right-5 mt-5 border-4 border-b-emerald-800">
-      <div className="flex justify-center items-center gap-2 bg-white">
-        <p className="text-xl font-bold">Grocery Bill</p>
-        <img src={logo} className="w-10 h-10 rounded-4xl object-cover"></img>
+    <div className="flex w-75 md:w-90 lg:w-115 flex-col bg-white text-emerald-800 lg:border-4 border-2 border-b-emerald-800 relative z-999" ref={billRef}
+  onClick={(e) => e.stopPropagation()}>
+      
+      <div className="flex justify-center items-center gap-0.5 lg:gap-2 bg-white">
+        <p className="lg:text-xl text-xs font-bold">Grocery Bill</p>
+        <img src={logo} className="w-6 h-6 lg:w-10 lg:h-10 rounded-full object-cover"></img>
       </div>
 
       <table className="w-full border-collapse text-center">
   <thead className="bg-emerald-800 text-white ">
     <tr>
-      <th className="px-5 py-3">Product</th>
-      <th className="px-5 py-3">Price</th>
-      <th className="px-5 py-3">Quantity</th>
-      <th className="px-5 py-3">Total</th>
+      <th className="px-2 py-1 lg:px-5 lg:py-3">Product</th>
+      <th className="px-2 py-1 lg:px-5 lg:py-3">Price</th>
+      <th className="px-2 py-1 lg:px-5 lg:py-3">Quantity</th>
+      <th className="px-2 py-1 lg:px-5 lg:py-3">Total</th>
     </tr>
   </thead>
 
@@ -52,18 +54,18 @@ const Biling = () => {
         key={items.id}
         className="border-b hover:bg-emerald-50 transition"
       >
-        <td className="py-3">
-          <div className="flex items-center gap-3 pl-2">
+        <td className="py-0.5 lg:py-3">
+          <div className="flex items-center gap-1 lg:gap-3 pl-2">
             <img
               src={items.image}
-              className="w-12 h-12 rounded-lg object-cover"
+              className="w-7 h-12 lg:w-12 lg:h-12 rounded-lg object-cover"
             />
 
-            <p className="font-semibold">{items.name}</p>
+            <p className="text-xs lg:text-xl font-semibold">{items.name}</p>
           </div>
         </td>
 
-        <td className="font-semibold">
+        <td className="font-semibold lg:text-xl text-xs">
           ₹{items.price}
         </td>
 
@@ -73,41 +75,42 @@ const Biling = () => {
           </div>
         </td>
 
-        <td className="font-bold text-emerald-700">
+        <td className="font-bold lg:text-xl text-xs">
           ₹{items.quantity * items.price}
         </td>
       </tr>
     ))}
   </tbody>
 </table>
-      <div className="bg-gray-100 rounded-xl m-3 p-4 shadow">
+      <div className="bg-gray-100 rounded-xl m-2 lg:m-3 p-1.5 lg:p-4 shadow">
 
-    <div className="flex justify-between text-lg mb-2">
+    <div className="flex justify-between text-sm lg:text-lg mb-0.5 lg:mb-2">
         <p>Subtotal</p>
         <span>₹{subTotal.toFixed(2)}</span>
     </div>
 
-    <div className="flex justify-between text-lg mb-2">
+    <div className="flex justify-between text-sm lg:text-lg mb-0.5 lg:mb-2">
         <p>GST (5%)</p>
         <span>₹{GST.toFixed(2)}</span>
     </div>
 
-    <div className="flex justify-between text-lg mb-2">
+    <div className="flex justify-between text-sm lg:text-lg mb-0.5 lg:mb-2">
         <p>Delivery</p>
         <span>₹{deliveryCharge}</span>
     </div>
 
     <hr className="my-2"/>
 
-    <div className="flex justify-between text-2xl font-bold text-emerald-700">
+    <div className="flex justify-between text-sm lg:text-2xl font-bold text-emerald-700 mt-1">
         <p>Total</p>
         <span>₹{totalPrice.toFixed(2)}</span>
     </div>
 
 </div>
-      <button className="bg-emerald-800 text-xl text-white w-auto m-2 rounded-xl p-2 flex justify-center items-center cursor-pointer" onClick={()=>{
+      <button className="bg-emerald-800 text-xl text-white w-auto m-1 ml-2 mr-2 lg:m-2 rounded-xl p-1 lg:p-2 flex justify-center items-center cursor-pointer" onClick={()=>{
         if(isSignedIn){
           navigate("/CheckOut");
+          setIsShow(false);
           setshowBill(false);
         }
         else{

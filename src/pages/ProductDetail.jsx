@@ -16,33 +16,33 @@ const ProductDetail = () => {
   return (
     <>
       {!product ? (
-        <h1 className="text-center text-4xl font-bold mt-20 text-red-500">
+        <h1 className="text-center text-4xl font-bold mt-3 lg:mt-20 text-red-500">
           Product Not Found
         </h1>
       ) : (
         <>
           <Header/>
 
-          <div className="max-w-7xl mx-auto my-10 bg-white rounded-3xl shadow-xl p-8">
+          <div className="max-w-7xl mx-auto my-1 lg:my-10 bg-white rounded-3xl shadow-xl pl-6 pr-6 lg:p-8">
 
-            <div className="flex gap-10">
+            <div className="flex gap-4 lg:gap-10 flex-col lg:flex-row">
 
 
-              <div className="w-1/2 flex justify-center items-center bg-gray-50 rounded-3xl p-2 border">
+              <div className="w-77 lg:w-1/2 flex justify-center items-center bg-gray-50 rounded-3xl p-2 border">
 
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-120 h-120 hover:scale-105 duration-300"
+                  className="w-60 h-60 lg:w-120 lg:h-120 hover:scale-105 duration-300"
                 />
 
               </div>
 
               {/* Right Side */}
 
-              <div className="w-1/2 flex flex-col gap-5">
+              <div className="lg:w-1/2 flex flex-col gap-2.5 lg:gap-5">
 
-                <h1 className="text-5xl font-bold text-emerald-800">
+                <h1 className="text-2xl md:text-4xl lg:text-5xl font-bold text-emerald-800">
                   {product.name}
                 </h1>
 
@@ -63,7 +63,7 @@ const ProductDetail = () => {
                   {product.quantity}
                 </p>
 
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3 lg:gap-4">
 
                   <span className="text-4xl font-bold text-emerald-700">
                     ₹{product.price}
@@ -86,13 +86,13 @@ const ProductDetail = () => {
                   {product.category}
                 </p>
 
-                <div className="bg-gray-100 rounded-xl p-5">
+                <div className="bg-gray-100 rounded-xl p-2.5 lg:p-5">
 
-                  <h2 className="text-2xl font-bold mb-2">
+                  <h2 className="text-2xl font-bold mb-0.5 lg:mb-2">
                     Description
                   </h2>
 
-                  <p className="text-gray-700 leading-8 text-lg">
+                  <p className="text-gray-700 leading-6 lg:leading-8 text-lg">
                     Lorem ipsum dolor sit amet consectetur adipisicing elit.
                     Aspernatur, beatae. Eaque minima accusantium dignissimos
                     labore adipisci doloremque maiores magni eligendi.
@@ -100,7 +100,7 @@ const ProductDetail = () => {
 
                 </div>
 
-                <div className="flex gap-5 mt-4 justify-evenly">
+                <div className="flex gap-5 mt-2 lg:mt-4 justify-evenly mb-4">
 
                  <AddToCart product={product}/>
 

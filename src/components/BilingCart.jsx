@@ -5,7 +5,8 @@ import { useRef, useEffect } from "react";
 import { AppContext } from "../context/AppContext";
 
 const BilingCart = () => {
-  const { cartTotal, cart, showBill, setshowBill } = useContext(AppContext);
+  const { cartTotal, cart, showBill, setshowBill, isShow } =
+    useContext(AppContext);
   const billRef = useRef(null);
 
   useEffect(() => {
@@ -15,14 +16,11 @@ const BilingCart = () => {
       }
     };
 
-    document.addEventListener("mousedown", clickedOutsideOfBill);
+    document.addEventListener("click", clickedOutsideOfBill);
 
-   return () => {
-  document.removeEventListener(
-    "mousedown",
-    clickedOutsideOfBill
-  );
-};
+    return () => {
+      document.removeEventListener("click", clickedOutsideOfBill);
+    };
   }, [setshowBill]);
 
   const generateBill = () => {
@@ -35,20 +33,23 @@ const BilingCart = () => {
     <>
       <div ref={billRef} className="relative">
         <div
-          className="justify-center items-center flex flex-col cursor-pointer relative text-emerald-900 text-xl font-bold"
-          onClick={generateBill}
+          className="mt-2 lg:justify-center lg:items-center flex lg:flex-col cursor-pointer relative text-emerald-900 font-bold gap-1.5 lg:gap-0"
+          onClick={(e) => {
+            e.stopPropagation();
+            generateBill();
+          }}
         >
-          <FaShoppingCart />
+          <FaShoppingCart className="text-xl md:text-2xl" />
           {cartTotal > 0 && (
-            <span className="absolute -top-2 -right-1 w-4.5 h-4.5 rounded-3xl text-xs flex justify-center items-center p-1 bg-lime-200">
+            <span className="absolute h-2 w-2 -top-2 right-18.5 p-2 lg:-top-2 lg:-right-1  lg:w-4.5 lg:h-4.5 rounded-3xl text-xs flex justify-center items-center lg:p-1 bg-lime-200">
               {cartTotal}
             </span>
           )}
           <p>Cart</p>
         </div>
         {showBill && (
-          <div className="absolute top-0 right-14 z-100">
-            <Biling/>
+          <div className="absolute top-12 right-0 lg:top-0 lg:right-14 z-9999">
+            <Biling billRef={billRef} />
           </div>
         )}
       </div>

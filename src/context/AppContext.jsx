@@ -9,6 +9,7 @@ const AppProvider = ({ children }) => {
   const { user, isLoaded } = useUser();
   const userId = user?.id;
 
+  const [isShow, setIsShow] = useState(false);
   const [category, setCategory] = useState("All");
   const [showBill, setshowBill] = useState(false);
   const [search, setSearch] = useState("");
@@ -95,6 +96,8 @@ const AppProvider = ({ children }) => {
         setShowDetail,
         loading,
         setLoading,
+        isShow,
+        setIsShow
       }}
     >
       {children}
