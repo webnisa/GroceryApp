@@ -41,7 +41,7 @@ const SearchBar = () => {
 
   return (
     <div className="relative flex items-center w-60 md:w-100 lg:w-150 h-10 border border-gray-300 rounded-xl px-3 bg-gray-100">
-      <FaSearch className="text-gray-500 text-xl" />
+      <FaSearch className="text-gray-500 text-xl shrink-0"/>
       <input
         type="text"
         placeholder="Search for products..."
