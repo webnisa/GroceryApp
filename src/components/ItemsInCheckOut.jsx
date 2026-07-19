@@ -38,7 +38,7 @@ const ItemsInCheckOut = () => {
 
   return (
     <>
-      <div className="w-85 md:w-130 lg:w-170 bg-white rounded-2xl shadow-lg border border-gray-200 p-2 lg:p-5">
+      <div className="w-full md:w-auto lg:w-170 bg-white rounded-2xl shadow-lg border border-gray-200 p-2 lg:p-5">
         <div className="flex justify-between items-center border-b pb-2 lg:pb-4 mb-2 lg:mb-5">
           <h2 className="text-xl lg:text-3xl font-bold text-emerald-800">
             Items
@@ -105,7 +105,7 @@ const ItemsInCheckOut = () => {
         </div>
       </div>
 
-      <div className="hidden lg:block w-85 md:130 lg:w-170 mt-2 bg-white shadow-lg border border-gray-200 rounded-2xl p-2 lg:p-4">
+      <div className="hidden md:block lg:block w-85 md:w-auto lg:w-170 mt-2 bg-white shadow-lg border border-gray-200 rounded-2xl p-2 lg:p-4">
         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-emerald-800 mb-1.5 lg:mb-3">
           Order Summary
         </h1>
@@ -141,7 +141,7 @@ const ItemsInCheckOut = () => {
         </div>
       </div>
       <button
-        className="hidden lg:block w-170 mt-2 lg:mt-4 bg-emerald-800 hover:bg-emerald-900 text-white py-1.5 lg:py-4 rounded-xl text-xl lg:text-2xl font-bold shadow-lg"
+        className="hidden md:w-100 md:block lg:block lg:w-170 mt-2 lg:mt-4 bg-emerald-800 hover:bg-emerald-900 text-white py-1.5 lg:py-4 rounded-xl text-xl lg:text-2xl font-bold shadow-lg"
         onClick={() => {
           if (cartTotal > 0) {
             handelPlaceOrder();

@@ -20,7 +20,7 @@ import Products from "./pages/Products";
 
 import Loader from "./components/Loader";
 import UserOrder from "./components/UserOrder";
-
+import NotFound from "./components/NotFound";
 
 const App = () => {
    const { loading, setLoading } = useContext(AppContext);
@@ -40,6 +40,7 @@ const App = () => {
       <Route path="/orderSuccess" element={<OrderSuccess />} />
       <Route path="/myOrder" element={<UserOrder/>}/>
       <Route path="/products" element={<Products/>}/>
+      <Route path="*" element={<NotFound />} />
     </Routes>
     </>
   );

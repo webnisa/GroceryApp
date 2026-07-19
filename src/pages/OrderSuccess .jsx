@@ -13,7 +13,7 @@ const OrderSuccess = () => {
 
       <div className="flex flex-col items-center justify-center h-[70vh]">
 
-        <div className="bg-white p-10 rounded-3xl shadow-xl text-center w-[500px]">
+        <div className="bg-white p-4 lg:p-10 rounded-3xl shadow-xl text-center w-80 md:w-110 lg:w-[500px]">
 
           <div className="text-7xl">
             🎉

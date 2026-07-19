@@ -42,13 +42,13 @@ const PlaceOrder = () => {
     <>
       <Header />
 
-      <div className="max-w-5xl mx-auto mt-10 mb-10">
+      <div className="max-w-5xl mx-auto flex flex-col lg:block justify-center items-center lg:mt-10 lg:mb-10">
 
         <h1 className="text-4xl font-bold text-emerald-800 mb-8">
           Confirm Order
         </h1>
 
-        <div className="bg-white shadow-xl rounded-2xl p-8">
+        <div className="bg-white shadow-xl rounded-2xl p-3 lg;p-8">
 
           <h2 className="text-2xl font-bold mb-5">
             Order Details

@@ -44,7 +44,7 @@ const PayForCheckOut = () => {
 
   return (
     <div className="gap-1 lg:gap-3 mt-2 lg:mt-4">
-      <div className="flex flex-wrap w-83 md:w-95 lg:w-120 bg-white shadow-lg border border-gray-200 text-xl text-green-800 p-1 lg:p-3 font-bold rounded-2xl justify-center items-center h-auto">
+      <div className="flex flex-wrap w-full md:w-85 lg:w-120 bg-white shadow-lg border border-gray-200 text-xl text-green-800 p-1 lg:p-3 font-bold rounded-2xl justify-center items-center h-auto">
         <h1 className="text-xl md:text-2xl lg:text-3xl m-2 mt-0 w-full text-center">
           {" "}
           Choose Payment Method
@@ -130,7 +130,7 @@ const PayForCheckOut = () => {
         </div>
       </div>
 
-      <div className="w-85 md:130 lg:w-200 mt-2 lg:hidden bg-white shadow-lg border border-gray-200 rounded-2xl p-2 lg:p-4">
+      <div className="w-full md:130 lg:w-200 mt-2 md:hidden lg:hidden bg-white shadow-lg border border-gray-200 rounded-2xl p-2 lg:p-4">
         <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-emerald-800 mb-1.5 lg:mb-3">
           Order Summary
         </h1>
@@ -166,7 +166,7 @@ const PayForCheckOut = () => {
         </div>
       </div>
       <button
-        className="lg:hidden w-full mt-2 lg:mt-4 bg-emerald-800 hover:bg-emerald-900 text-white py-1.5 lg:py-4 rounded-xl text-xl lg:text-2xl font-bold shadow-lg"
+        className="lg:hidden md:hidden w-full mt-2 lg:mt-4 bg-emerald-800 hover:bg-emerald-900 text-white py-1.5 lg:py-4 rounded-xl text-xl lg:text-2xl font-bold shadow-lg"
         onClick={handelPlaceOrder}
       >
         Place Order

@@ -21,7 +21,7 @@ const SearchResult = () => {
 
         {filteredProducts.length > 0 ? (
 
-          <div className="grid grid-cols-6 gap-4 p-6">
+          <div className="w-full h-auto grid grid-cols-3 md:grid-cols-5 lg:grid-cols-6 gap-1.5 md:gap-3 lg:gap-3 p-3 md:p-6 lg:p-8 pt-3">
 
             {filteredProducts.map((items) => (
               <Card

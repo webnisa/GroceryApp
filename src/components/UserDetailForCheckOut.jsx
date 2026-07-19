@@ -82,7 +82,7 @@ const UserDetailForCheckOut = () => {
 
 
   return (
-    <div className="flex flex-wrap w-85 md:w-95 lg:w-120 bg-white shadow-lg border border-gray-200 text-green-800 p-1 lg:p-3 font-bold rounded-2xl justify-center items-center h-auto">
+    <div className="flex flex-wrap w-full md:w-auto lg:w-120 bg-white shadow-lg border border-gray-200 text-green-800 p-1 lg:p-3 font-bold rounded-2xl justify-center items-center h-auto">
       <p className="font-bold text-xl lg:text-2xl mb-1 lg:mb-3">User Detail</p>
       <div className="flex flex-col w-full h-auto text-emerald-800 lg:gap-3 gap-1">
         <input
