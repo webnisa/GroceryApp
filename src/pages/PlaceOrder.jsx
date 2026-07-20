@@ -8,10 +8,11 @@ import { toast } from "react-toastify";
 
 const PlaceOrder = () => {
 
-  const { cart, paymentType, setCart, order, setOrder} = useContext(AppContext);
+  const { cart, paymentType, setCart, order, setOrder, isBuyNow, setIsBuyNow} = useContext(AppContext);
   const navigate = useNavigate();
+   const categoryOfBuy = isBuyNow? [isBuyNow] : cart;
 
-  const subTotal = cart.reduce((total, item) => {
+  const subTotal = categoryOfBuy.reduce((total, item) => {
     return total + item.price * item.quantity;
   },0);
 
@@ -33,6 +34,7 @@ const PlaceOrder = () => {
     setOrder([...order, newOrder]);
 
     setCart([])
+    setIsBuyNow(null);
       toast.info("Order Placed Successfully 🎉");
       navigate("/orderSuccess");
 
@@ -55,7 +57,7 @@ const PlaceOrder = () => {
           </h2>
 
           {
-            cart.map(item=>(
+            categoryOfBuy.map(item=>(
               <div
               key={item.id}
               className="flex justify-between border-b py-3"

@@ -1,14 +1,15 @@
 import React, { useContext } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import { products } from "../data/products";
 import { FaStar } from "react-icons/fa";
 import AddToCart from "../components/AddToCart";
 import { AppContext } from "../context/AppContext";
+import BuyNow from "../components/BuyNow";
 
 const ProductDetail = () => {
-  const { cart, setCart, cartTotal, showBill, setshowBill, wishlist, setWishlist} = useContext(AppContext)
+  const { cart, setCart, cartTotal, showBill, setshowBill, wishlist, setWishlist, isBuyNow, setIsBuyNow } = useContext(AppContext)
   const { id } = useParams();
 
   const product = products.find((item) => item.id === Number(id));
@@ -104,9 +105,7 @@ const ProductDetail = () => {
 
                  <AddToCart product={product}/>
 
-                  <button className="bg-orange-500 hover:bg-orange-600 text-white px-8 py-3 rounded-xl text-xl font-semibold duration-300">
-                    Buy Now
-                  </button>
+                  <BuyNow product={product}/>
 
                 </div>
 

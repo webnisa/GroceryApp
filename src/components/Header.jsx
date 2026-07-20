@@ -27,6 +27,7 @@ const Header = () => {
     setSearch,
     isShow,
     setIsShow,
+    setIsBuyNow
   } = useContext(AppContext);
 
   const navigate = useNavigate();
@@ -59,6 +60,7 @@ const Header = () => {
           onClick={() => {
             navigate("/");
             setSearch("");
+            setIsBuyNow(null);
           }}
         >
           <img
@@ -78,7 +80,7 @@ const Header = () => {
           <SignedOut>
             {/* Login */}
             <div
-              onClick={() => navigate("/login")}
+              onClick={() => {navigate("/login"); setIsBuyNow(null);}}
               className="flex flex-col items-center cursor-pointer text-emerald-800 hover:text-emerald-600 transition duration-300 font-bold"
             >
               <FaUserCircle className="text-xl md:text-2xl lg:text-2xl" />
@@ -87,7 +89,7 @@ const Header = () => {
 
             {/* Signup */}
             <div
-              onClick={() => navigate("/signup")}
+              onClick={() =>{ navigate("/signup"); setIsBuyNow(null);}}
               className="flex flex-col items-center cursor-pointer text-emerald-800 hover:text-emerald-600 transition duration-300 font-bold"
             >
               <FaSignInAlt className="text-xl md:text-2xl lg:text-2xl" />
@@ -108,7 +110,7 @@ const Header = () => {
 
               {/* My Orders */}
               <button
-                onClick={() => navigate("/myOrder")}
+                onClick={() =>{ navigate("/myOrder"); setIsBuyNow(null);}}
                 className="px-4 py-2 lg:px-2 lg:py-0.5 md:px-4 md:py-2 rounded-xl bg-emerald-600 text-white font-semibold hover:bg-emerald-700 transition duration-300 shadow-md"
               >
                 My Orders

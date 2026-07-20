@@ -5,12 +5,21 @@ import { ImCross } from "react-icons/im";
 import AddToCart from "./AddToCart";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import BuyNow from "./BuyNow";
+import { products } from "../data/products";
 
 const ItemsInCheckOut = () => {
-  const { cart, cartTotal, setCart, paymentType } = useContext(AppContext);
+  const { cart, cartTotal, setCart, paymentType, isBuyNow, setIsBuyNow } = useContext(AppContext);
   const navigate = useNavigate();
 
-  const subTotal = cart.reduce((total, items) => {
+  const categoryOfBuy = isBuyNow? [isBuyNow] : cart;
+  const buyNowTotal =  ()=>{
+    if(isBuyNow){
+      return isBuyNow.quantity;
+    }
+  }
+
+  const subTotal = categoryOfBuy.reduce((total, items) => {
     return total + items.price * items.quantity;
   }, 0);
 
@@ -19,13 +28,23 @@ const ItemsInCheckOut = () => {
   const total = subTotal + GST + deliveryCharge;
 
   const deleteAllProduct = () => {
-    setCart([]);
+    if(isBuyNow){
+      setIsBuyNow(null);
+    }
+    else{
+       setCart([]);
+    }
   };
 
   const deleteProduct = (items) => {
-    const filterCart = cart.filter((product) => product.id !== items.id);
-
-    setCart(filterCart);
+    const filterCart = categoryOfBuy.filter((product) => product.id !== items.id);
+    
+    if(isBuyNow){
+      setIsBuyNow(null);
+    }
+    else{
+      setCart(filterCart);
+    }
   };
 
   const handelPlaceOrder = () => {
@@ -43,7 +62,7 @@ const ItemsInCheckOut = () => {
           <h2 className="text-xl lg:text-3xl font-bold text-emerald-800">
             Items
             <span className="text-lg text-gray-500 ml-2">
-              ({cartTotal} items)
+              ( { isBuyNow? buyNowTotal : cartTotal} items)
             </span>
           </h2>
 
@@ -57,7 +76,7 @@ const ItemsInCheckOut = () => {
         </div>
 
         <div className="flex flex-col gap-5">
-          {cart.map((items) => (
+          {categoryOfBuy.map((items) => (
             <div
               key={items.id}
               className="flex justify-between items-center p-2 lg:p-3 rounded-xl shadow-[0_0_15px_rgba(0,0,0,0.2)]"
@@ -81,7 +100,8 @@ const ItemsInCheckOut = () => {
                   </p>
 
                   <div className="">
-                    <AddToCart product={items} />
+                    {isBuyNow? (<BuyNow product={items}/>): <AddToCart product={items} />}
+                    
                   </div>
                 </div>
               </div>
@@ -143,7 +163,7 @@ const ItemsInCheckOut = () => {
       <button
         className="hidden md:w-100 md:block lg:block lg:w-170 mt-2 lg:mt-4 bg-emerald-800 hover:bg-emerald-900 text-white py-1.5 lg:py-4 rounded-xl text-xl lg:text-2xl font-bold shadow-lg"
         onClick={() => {
-          if (cartTotal > 0) {
+          if (cartTotal > 0 || isBuyNow) {
             handelPlaceOrder();
           }
           else{

@@ -19,6 +19,7 @@ const AppProvider = ({ children }) => {
   const [wishlist, setWishlist] = useState([]);
   const [cart, setCart] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [isBuyNow, setIsBuyNow] = useState(null);
 
   const location = useLocation();
 
@@ -97,7 +98,9 @@ const AppProvider = ({ children }) => {
         loading,
         setLoading,
         isShow,
-        setIsShow
+        setIsShow,
+        isBuyNow,
+        setIsBuyNow,
       }}
     >
       {children}

@@ -11,7 +11,6 @@ const CheckOut = () => {
   const {cart, setCart} = useContext(AppContext);
 
 
-
   return ( 
     <>
     <Header/>
