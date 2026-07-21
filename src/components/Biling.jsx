@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { useUser } from "@clerk/clerk-react";
 
 const Biling = ({billRef}) => {
-  const { cartTotal, cart, showBill, setshowBill , setIsShow} = useContext(AppContext);
+  const { cartTotal, cart, showBill, setshowBill , setIsShow, isBuyNow, setIsBuyNow} = useContext(AppContext);
 
   const navigate = useNavigate();
   const { isSignedIn } = useUser();
@@ -108,7 +108,12 @@ const Biling = ({billRef}) => {
 
 </div>
       <button className="bg-emerald-800 text-xl text-white w-auto m-1 ml-2 mr-2 lg:m-2 rounded-xl p-1 lg:p-2 flex justify-center items-center cursor-pointer" onClick={()=>{
+        if(isBuyNow){
+            setIsBuyNow(null);
+          }
+
         if(isSignedIn){
+          
           navigate("/CheckOut");
           setIsShow(false);
           setshowBill(false);

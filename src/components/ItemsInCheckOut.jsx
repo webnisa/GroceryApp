@@ -13,11 +13,8 @@ const ItemsInCheckOut = () => {
   const navigate = useNavigate();
 
   const categoryOfBuy = isBuyNow? [isBuyNow] : cart;
-  const buyNowTotal =  ()=>{
-    if(isBuyNow){
-      return isBuyNow.quantity;
-    }
-  }
+
+  const buyNowTotal = isBuyNow? isBuyNow.quantity : 0;
 
   const subTotal = categoryOfBuy.reduce((total, items) => {
     return total + items.price * items.quantity;
@@ -163,7 +160,7 @@ const ItemsInCheckOut = () => {
       <button
         className="hidden md:w-100 md:block lg:block lg:w-170 mt-2 lg:mt-4 bg-emerald-800 hover:bg-emerald-900 text-white py-1.5 lg:py-4 rounded-xl text-xl lg:text-2xl font-bold shadow-lg"
         onClick={() => {
-          if (cartTotal > 0 || isBuyNow) {
+          if (cartTotal > 0 || isBuyNow !== null) {
             handelPlaceOrder();
           }
           else{
